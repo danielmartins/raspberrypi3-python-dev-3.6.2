@@ -4,6 +4,7 @@ MAINTAINER Daniel Santos <daniel.santos@fpf.br>
 RUN [ "cross-build-start" ]
 
 RUN apt-get update && apt-get install -y \
+		dh-virtualenv \ 
 		autoconf \
 		python3-venv \
 		python3 \
