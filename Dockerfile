@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-raspbian:stretch
 MAINTAINER Daniel Santos <daniel.santos@fpf.br>
 
 RUN [ "cross-build-start" ]
@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y \
 		libjpeg-dev \
 		libmagickcore-dev \
 		libmagickwand-dev \
-		libmysqlclient-dev \
 		libncurses-dev \
 		libpq-dev \
 		libreadline-dev \
@@ -34,7 +33,9 @@ RUN apt-get update && apt-get install -y \
 		git \
 		devscripts \
 		equivs \
+		wget \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz && tar xf Python-3.6.2.tar.xz && cd Python-3.6.2 && ./configure && make -j 4 && make altinstall
 
 RUN [ "cross-build-end" ]
