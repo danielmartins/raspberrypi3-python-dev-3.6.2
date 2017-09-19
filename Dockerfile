@@ -5,6 +5,7 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update && apt-get install -y \
 		autoconf \
+		python3-venv \
 		python3 \
 		python3-setuptools \
 		python3-setuptools-git \
@@ -35,7 +36,5 @@ RUN apt-get update && apt-get install -y \
 		equivs \
 		wget \
 	&& rm -rf /var/lib/apt/lists/*
-
-RUN wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz && tar xf Python-3.6.2.tar.xz && cd Python-3.6.2 && ./configure && make -j 4 && make altinstall
 
 RUN [ "cross-build-end" ]
