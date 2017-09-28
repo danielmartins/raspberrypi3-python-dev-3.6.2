@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y \
 		devscripts \
 		equivs \
 		wget \
+		openssh-client \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN [ "cross-build-end" ]
